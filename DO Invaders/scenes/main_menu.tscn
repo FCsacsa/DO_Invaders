@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scripts/main_menu.gd" type="Script" id=2]
+[ext_resource path="res://text_animations/main_menu.tres" type="Animation" id=3]
+[ext_resource path="res://PixelFJVerdana12pt.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://text_animations/blink.tres" type="Animation" id=5]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://PixelFJVerdana12pt.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
+font_data = ExtResource( 4 )
+
+[node name="control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 0.5
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0.785199, 0.528526, 1 )
+text = "DO invaders"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="animationPlayer" type="AnimationPlayer" parent="title"]
+autoplay = "title"
+anims/title = ExtResource( 3 )
+
+[node name="version_num" type="Label" parent="."]
+anchor_left = 0.02
+anchor_top = 0.98
+anchor_right = 0.02
+anchor_bottom = 0.98
+margin_top = -38.0
+margin_right = 114.0
+custom_fonts/font = SubResource( 2 )
+text = "ver. 1.0.3"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="inst" type="Label" parent="."]
+anchor_top = 0.7
+anchor_right = 1.0
+anchor_bottom = 0.7
+margin_top = -24.0
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 0.476265 )
+text = "Press [Space] to start
+
+press [f2] for settings"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="animationPlayer" type="AnimationPlayer" parent="inst"]
+autoplay = "blink"
+anims/blink = ExtResource( 5 )

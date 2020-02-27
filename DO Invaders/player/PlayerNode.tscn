@@ -1,0 +1,77 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scripts/moveBoii.gd" type="Script" id=1]
+[ext_resource path="res://scripts/gun.gd" type="Script" id=2]
+[ext_resource path="res://player/healthBar/bg-health.tres" type="StyleBox" id=3]
+[ext_resource path="res://sprites/boii.png" type="Texture" id=4]
+[ext_resource path="res://player/healthBar/fg-health.tres" type="StyleBox" id=5]
+[ext_resource path="res://sfx/pew.tres" type="AudioStream" id=6]
+[ext_resource path="res://PixelFJVerdana12pt.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 22
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 7 )
+
+[node name="PlayerNode" type="Node2D"]
+
+[node name="player" type="KinematicBody2D" parent="."]
+position = Vector2( 475.482, 297.658 )
+collision_mask = 8
+script = ExtResource( 1 )
+speedX = 0.0
+speedY = 0.0
+accX = 3000.0
+rotM = 20.0
+
+[node name="gun" type="Position2D" parent="player"]
+position = Vector2( 0, -10 )
+script = ExtResource( 2 )
+dir = Vector2( 0, 1 )
+shoot = true
+cneed = 0.2
+
+[node name="audioStreamPlayer2D" type="AudioStreamPlayer2D" parent="player/gun"]
+stream = ExtResource( 6 )
+volume_db = -30.0
+pitch_scale = 0.85
+
+[node name="boii" type="Sprite" parent="player"]
+scale = Vector2( 0.03, 0.04 )
+texture = ExtResource( 4 )
+
+[node name="collisionPolygon2D" type="CollisionPolygon2D" parent="player"]
+polygon = PoolVector2Array( 0.00588894, 6.84976, -9.07361, 12.078, 0.0202713, -12.0527, 9.09804, 12.1295 )
+
+[node name="healthbar" type="ProgressBar" parent="."]
+margin_left = 29.7622
+margin_top = 20.0
+margin_right = 229.762
+margin_bottom = 34.0
+mouse_filter = 2
+custom_styles/fg = ExtResource( 5 )
+custom_styles/bg = ExtResource( 3 )
+max_value = 10.0
+step = 1.0
+value = 5.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="points" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = 1400.0
+margin_right = 1600.0
+margin_bottom = 14.0
+grow_horizontal = 0
+custom_fonts/font = SubResource( 1 )
+text = "0
+"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

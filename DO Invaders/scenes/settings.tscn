@@ -1,0 +1,139 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://text_animations/main_menu.tres" type="Animation" id=1]
+[ext_resource path="res://text_animations/blink.tres" type="Animation" id=2]
+[ext_resource path="res://scripts/settings.gd" type="Script" id=3]
+[ext_resource path="res://PixelFJVerdana12pt.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFontData" id=2]
+font_path = "res://PixelFJVerdana12pt.ttf"
+
+[sub_resource type="DynamicFont" id=3]
+size = 64
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 2 )
+
+[sub_resource type="DynamicFontData" id=4]
+font_path = "res://PixelFJVerdana12pt.ttf"
+
+[sub_resource type="DynamicFont" id=5]
+size = 36
+font_data = SubResource( 4 )
+
+[sub_resource type="DynamicFontData" id=6]
+font_path = "res://PixelFJVerdana12pt.ttf"
+
+[sub_resource type="DynamicFont" id=7]
+size = 36
+font_data = SubResource( 6 )
+
+[node name="control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -2.08325
+margin_bottom = -2.08325
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="onoff" type="Label" parent="."]
+anchor_left = 0.85
+anchor_top = 0.5
+anchor_right = 0.85
+anchor_bottom = 0.5
+margin_top = 2.08325
+margin_right = 40.0
+margin_bottom = 16.0833
+rect_rotation = 30.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "OFF"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="onoff2" type="Label" parent="."]
+anchor_left = 0.73
+anchor_top = 0.65
+anchor_right = 0.76
+anchor_bottom = 0.65
+margin_top = 2.08325
+margin_right = 40.0
+margin_bottom = 16.0833
+rect_rotation = 30.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "OFF"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title" type="Label" parent="."]
+anchor_top = 0.05
+anchor_right = 1.0
+anchor_bottom = 0.3
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0.500437, 0.813288, 1 )
+text = "settings"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="animationPlayer" type="AnimationPlayer" parent="title"]
+anims/main_menu = ExtResource( 1 )
+
+[node name="reset" type="Label" parent="."]
+anchor_top = 0.65
+anchor_right = 1.0
+anchor_bottom = 0.8
+margin_top = -7.0
+margin_bottom = 7.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 1, 1, 1, 0.313726 )
+text = "Press [R+E+S] to reset."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="animationPlayer" type="AnimationPlayer" parent="reset"]
+autoplay = "blink"
+playback_speed = 0.5
+anims/blink = ExtResource( 2 )
+
+[node name="auto" type="Label" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.65
+margin_top = -7.0
+margin_bottom = 7.0
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 1, 1, 1, 0.313726 )
+text = "Press [Space] to toggle autoshoot."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="animationPlayer" type="AnimationPlayer" parent="auto"]
+autoplay = "blink"
+playback_speed = 0.75
+anims/blink = ExtResource( 2 )
