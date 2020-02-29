@@ -54,7 +54,6 @@ __meta__ = {
 [node name="gun" type="Position2D" parent="enemy"]
 position = Vector2( 0, 50 )
 script = ExtResource( 2 )
-dir = Vector2( 0, 1 )
 shoot = true
 cneed = 0.75
 type = 3

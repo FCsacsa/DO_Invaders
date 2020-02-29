@@ -51,7 +51,7 @@ __meta__ = {
 [node name="gun" type="Position2D" parent="enemy"]
 position = Vector2( 0, 50 )
 script = ExtResource( 2 )
-dir = Vector2( 0, 1 )
+dirB = Vector2( 0, 1 )
 shoot = true
 cneed = 0.75
 type = 2
@@ -76,7 +76,7 @@ pitch_scale = 1.2
 [node name="gun3" type="Position2D" parent="enemy"]
 position = Vector2( -40, 0 )
 script = ExtResource( 2 )
-dir = Vector2( -1, 0 )
+dirB = Vector2( -1, 0 )
 shoot = true
 cneed = 0.75
 type = 2
@@ -89,7 +89,7 @@ pitch_scale = 1.2
 [node name="gun4" type="Position2D" parent="enemy"]
 position = Vector2( 0, -30 )
 script = ExtResource( 2 )
-dir = Vector2( 0, -1 )
+dirB = Vector2( 0, -1 )
 shoot = true
 cneed = 0.75
 type = 2
@@ -102,7 +102,7 @@ pitch_scale = 1.2
 [node name="gun5" type="Position2D" parent="enemy"]
 position = Vector2( 30, 30 )
 script = ExtResource( 2 )
-dir = Vector2( 1, 1 )
+dirB = Vector2( 1, 1 )
 shoot = true
 cneed = 0.75
 type = 2
@@ -115,7 +115,7 @@ pitch_scale = 1.2
 [node name="gun6" type="Position2D" parent="enemy"]
 position = Vector2( -30, 30 )
 script = ExtResource( 2 )
-dir = Vector2( -1, 1 )
+dirB = Vector2( -1, 1 )
 shoot = true
 cneed = 0.75
 type = 2
@@ -128,7 +128,7 @@ pitch_scale = 1.2
 [node name="gun7" type="Position2D" parent="enemy"]
 position = Vector2( 20, -20 )
 script = ExtResource( 2 )
-dir = Vector2( 1, -1 )
+dirB = Vector2( 1, -1 )
 shoot = true
 cneed = 0.75
 type = 2
@@ -141,7 +141,7 @@ pitch_scale = 1.2
 [node name="gun8" type="Position2D" parent="enemy"]
 position = Vector2( -20, -20 )
 script = ExtResource( 2 )
-dir = Vector2( -1, -1 )
+dirB = Vector2( -1, -1 )
 shoot = true
 cneed = 0.75
 type = 2

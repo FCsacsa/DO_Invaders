@@ -11,6 +11,7 @@ const e1 = "res://enemies/enemy1.tscn"
 const e2 = "res://enemies/enemy2.tscn"
 const e3 = "res://enemies/enemy3.tscn"
 const e4 = "res://enemies/enemy4.tscn"
+const e5 = "res://enemies/enemy5.tscn"
 
 var types = [
 	[e1, 0, 50],
@@ -18,11 +19,15 @@ var types = [
 	[e2, 3, 100],
 	[e3, 2, 150],
 	[e4, 1, 200],
-	[e4, 0, 150]
+	[e4, 0, 150],
+	[e5, 4, 100],
+	[e5, 5, 150]
 ]
 
 var enemies
 var was = false
+var easy = 0
+var med = 0
 
 func _ready():
 	enemies = get_child(0)
@@ -46,8 +51,17 @@ func _process(delta):
 		was = true
 
 func _getRandomSpawnPat():
-	var n = spawn_patterns["easy"].size()
-	return spawn_patterns["easy"][randi()%n]
+	if easy < 10:
+		easy += 1
+		var n = spawn_patterns["easy"].size()
+		return spawn_patterns["easy"][randi()%n]
+	elif med < 10:
+		med += 1
+		var n = spawn_patterns["medium"].size()
+		return spawn_patterns["medium"][randi()%n]
+	else:
+		var n = spawn_patterns["hard"].size()
+		return spawn_patterns["hard"][randi()%n]
 	
 
 func _spawn_Pat(pat):

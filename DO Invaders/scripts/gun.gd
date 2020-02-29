@@ -1,11 +1,12 @@
 extends Position2D
 
-export (Vector2) var dir = Vector2(1, 0)
+export (Vector2) var dirB = Vector2(1, 0)
 export (bool) var shoot
 export (float) var cneed
 export (int) var type = 0
 
 var time
+var dir
 
 const proj0 = "res://proj/proj0.tscn"
 const proj1 = "res://proj/proj1.tscn"
@@ -32,9 +33,9 @@ func _process(delta):
 		sfx.play()
 		dir = (global_position - get_parent().global_position).normalized()
 		if type == 0:
-			dir = Vector2(0,-1)
+			dir = dirB.normalized()
 		else:
-			dir = dir.normalized()
+			dir = dirB.normalized()
 		time = 0
 		var newProj = load(proj[type]).instance()
 		if type == 3:

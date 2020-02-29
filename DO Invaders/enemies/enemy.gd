@@ -40,9 +40,9 @@ func _moveY(delta):
 		move.y = 0
 	
 func _moveX(delta):
-	if type == 0 or not global_position.y > size.y / 2 or type == 3:
+	if type == 0 or not global_position.y > size.y / 2 or type == 3 or type == 4:
 		move.x = 0
-	elif type == 1 or type == 2:
+	elif type == 1 or type == 2 or type == 5:
 		if global_position.x < size.x / 2:
 			xMod = 1
 		if global_position.x > get_viewport_rect().size.x - size.x / 2:
@@ -63,6 +63,8 @@ func _shoot():
 			get_child(6).shoot = true
 			get_child(7).shoot = true
 			get_child(8).shoot = true
+		if type == 4:
+			get_child(2).shoot = true
 	else:
 		get_child(1).shoot = false
 		if type == 3:
@@ -73,11 +75,15 @@ func _shoot():
 			get_child(6).shoot = false
 			get_child(7).shoot = false
 			get_child(8).shoot = false
+		if type == 4:
+			get_child(2).shoot = false
 
 func _show_life():
 	get_child(0).value = life
 	if type == 3:
 		get_child(9).text = str(life)
+	elif type == 4:
+		get_child(3).text = str(life)
 	else:
 		get_child(2).text = str(life)
 
